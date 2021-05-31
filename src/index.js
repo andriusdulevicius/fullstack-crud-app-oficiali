@@ -4,6 +4,8 @@ const path = require('path');
 
 const PORT = 3000;
 
+// const pageRoutes = require('routes/pageRoutes')
+
 // register view engine
 app.set('view engine', 'ejs');
 // nustatom render view home dir
@@ -64,7 +66,9 @@ app.use(express.static(staticPath));
 
 
 // blog api /api/blog gauti visu postus json pavidalu
-
+app.get('/api/blog', (req, res) => {
+  res.json(blogDb);
+})
 
 
 // 404 case - kai vartojas ivede psl kurio nera
