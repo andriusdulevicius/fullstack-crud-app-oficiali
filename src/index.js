@@ -33,7 +33,8 @@ app.get('/about', function (req, res) {
 app.get('/blog', function (req, res) {
   res.render('blog', {
     title: "Our blog",
-    page: 'blog'
+    page: 'blog',
+    blogDb
   });
 });
 
@@ -45,9 +46,26 @@ app.get('/contact', function (req, res) {
   });
 });
 
+// create blog page /blog/create
+// contact page
+app.get('/blog/create', function (req, res) {
+  res.render('createBlog', {
+    title: 'Create new Post',
+    page: 'createB'
+  });
+});
+
+
 const staticPath = path.join(__dirname, 'static');
 // statine direktorija, css, js, img ir kt statiniam failam
 app.use(express.static(staticPath));
+
+
+
+
+// blog api /api/blog gauti visu postus json pavidalu
+
+
 
 // 404 case - kai vartojas ivede psl kurio nera
 app.use((req, res) => res.status(404).send('OOPs Page not found'));
