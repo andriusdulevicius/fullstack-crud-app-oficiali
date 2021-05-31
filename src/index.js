@@ -11,14 +11,15 @@ app.set('views', 'src/views');
 
 // home page
 app.get('/', function (req, res) {
-  // res.sendFile(path.join(__dirname, 'pages', 'index.html'));
   // paimti index.ejs faila is views direktorijos
   res.render('index');
 });
 
 // about page
 app.get('/about', function (req, res) {
-  res.render('about');
+  res.render('about', {
+    title: 'About us',
+  });
 });
 
 // blog page
