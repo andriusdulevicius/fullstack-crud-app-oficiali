@@ -9,15 +9,15 @@ app.set('view engine', 'ejs');
 // nustatom render view home dir
 app.set('views', 'src/views');
 
-const blogData = require('./data/sampleBlog')
+// const blogData = require('./data/sampleBlog')
+const blogDb = require('./data/blogDb')
 
 // home page
 app.get('/', function (req, res) {
   // paimti index.ejs faila is views direktorijos
   res.render('index', { 
     title: 'Home',
-    page: 'home',
-    blogData
+    page: 'home'
   });
 });
 
