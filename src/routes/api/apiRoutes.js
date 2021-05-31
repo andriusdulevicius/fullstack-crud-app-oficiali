@@ -5,8 +5,13 @@ const blogDb = require('../../data/blogDb');
 
 // blog api
 // /api/blog gauti visu postus json pavidalu
-router.get('/api/blog/', (req, res) => {
+router.get('/', (req, res) => {
   res.json(blogDb);
+});
+
+router.post('/', (req, res) => {
+  console.log(req.body);
+  res.json({ msg: 'testing' });
 });
 
 module.exports = router;
