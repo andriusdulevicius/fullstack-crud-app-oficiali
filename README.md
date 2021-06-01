@@ -18,7 +18,7 @@
 - npm i mongoose
 - include mongoose to index.js
 - config.js file with connect string
-- mongoose connect
+- mongoose connect (deprication warning fixes)
 - start server after connect
 - mkdir models
 - post.js modle file
