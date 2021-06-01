@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.body);
   // paimam req body duomenis ir su jais sukuriam nauja post ir ikeliam i blogDb
-  res.json({ msg: 'success', redirect: '/blogs' });
+  res.json({ msg: 'success', redirect: '/blog' });
 });
 
 module.exports = router;

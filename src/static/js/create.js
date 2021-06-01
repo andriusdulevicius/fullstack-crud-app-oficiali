@@ -16,4 +16,9 @@ const newPostData = {
 };
 
 const jsonData = JSON.stringify(newPostData);
-MyFetch.createPost(jsonData);
+MyFetch.createPost(jsonData, (data) => {
+  if (data.redirect) {
+    console.log('redirecting to ', data.redirect);
+    // window.location = data.redirect;
+  }
+});

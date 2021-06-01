@@ -15,7 +15,7 @@ export default class MyFetch {
    *
    * @param {JSON} data // needs to be json format
    */
-  static createPost(data) {
+  static createPost(data, successCallback) {
     fetch(MyFetch.baseUrl, {
       method: 'POST',
       headers: {
@@ -24,7 +24,7 @@ export default class MyFetch {
       body: data,
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => successCallback(data))
       .catch((err) => console.error(err.message));
   }
 }
