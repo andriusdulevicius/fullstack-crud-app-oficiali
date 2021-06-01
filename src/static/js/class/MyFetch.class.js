@@ -10,5 +10,21 @@ export default class MyFetch {
     return data;
   }
 
-  static async createPost(data, Method, id = null) {}
+  /**
+   * method to create post
+   *
+   * @param {JSON} data // needs to be json format
+   */
+  static createPost(data) {
+    fetch(MyFetch.baseUrl, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err.message));
+  }
 }
