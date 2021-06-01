@@ -4,7 +4,7 @@
 
 <h1>Add new Blog post</h1>
 
-<form action="/api/blog" method="POST">
+<form id="create-post-form" action="/api/blog" method="POST">
   <div class="form-group">
     <label for="title">Your Title</label>
     <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" />
@@ -15,8 +15,13 @@
   </div>
   <div class="form-group">
     <label for="text">Enter Post Text</label>
-    <textarea type="text" class="form-control" id="text" name="text" placeholder="Enter text">
-    </textarea>
+    <textarea
+      type="text"
+      class="form-control"
+      id="text"
+      name="text"
+      placeholder="Enter text"
+    ></textarea>
   </div>
 
   <button type="submit" class="btn btn-primary">Add post</button>
