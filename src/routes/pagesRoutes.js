@@ -46,4 +46,6 @@ router.get('/blog/create', function (req, res) {
   });
 });
 
+// Single page route
+
 module.exports = router;
