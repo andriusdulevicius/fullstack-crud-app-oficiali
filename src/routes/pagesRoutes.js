@@ -47,5 +47,12 @@ router.get('/blog/create', function (req, res) {
 });
 
 // Single page route
+router.get('/single/:id', (req, res) => {
+  res.render('singlePage', {
+    title: 'Post about ...',
+    page: 'single',
+  });
+});
+// /single/:id
 
 module.exports = router;
