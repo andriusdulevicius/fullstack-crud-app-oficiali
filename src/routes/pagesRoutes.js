@@ -48,9 +48,14 @@ router.get('/blog/create', function (req, res) {
 
 // Single page route
 router.get('/single/:id', (req, res) => {
+  const blogId = req.params.id;
+  const found = blogDb.find((p) => p.id === +blogId);
+  // TODO: redirect if not found or no id given
+  console.log(' found', found);
   res.render('singlePage', {
     title: 'Post about ...',
     page: 'single',
+    post: found,
   });
 });
 // /single/:id
