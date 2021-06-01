@@ -15,14 +15,14 @@
 
 ## MONGO
 
-- npm i mongoose
-- include mongoose to index.js
-- config.js file with connect string
-- mongoose connect (deprication warning fixes)
-- start server after connect
-- mkdir models
-- post.js modle file
-- postSchema in post.js file
-- create model using post Schema
-- export import to index.js
-- use Post to get all posts and show them in blog page
+1. npm i mongoose
+1. include mongoose to index.js
+1. config.js file with connect string
+1. mongoose connect (deprication warning fixes)
+1. start server after connect
+1. mkdir models
+1. post.js modle file
+1. postSchema in post.js file
+1. create model using post Schema
+1. export import to index.js
+1. use Post to get all posts and show them in blog page
