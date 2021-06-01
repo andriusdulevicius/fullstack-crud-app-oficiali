@@ -2,10 +2,22 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+const mongoose = require('mongoose');
+const { mongoDbString } = require('./config/c');
+
 const PORT = 3000;
 
 const pageRoutes = require('./routes/pagesRoutes');
 const apiRoutes = require('./routes/api/apiRoutes');
+
+// mongoos prisijungimas
+mongoose
+  .connect(mongoDbString, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) => {
+    console.log('connected');
+    app.listen(PORT);
+  })
+  .catch((err) => console.error(err.message));
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -26,5 +38,3 @@ app.use(express.static(staticPath));
 app.use('/api/blog', apiRoutes);
 // 404 case - kai vartojas ivede psl kurio nera
 app.use((req, res) => res.status(404).send('OOPs Page not found'));
-
-app.listen(PORT);
