@@ -5,16 +5,23 @@
 <h2>Single page template</h2>
 <section class="jumbotron text-center" data-post-id="<%= post._id %>">
   <div class="container">
-    <h1
-      ><input required type="text" class="form-control" name="title" value="<%= post.title %>"
-    /></h1>
+    <form id="edit-form">
+      <h1
+        ><input required type="text" class="form-control" name="title" value="<%= post.title %>"
+      /></h1>
 
-    <h4><%= post.author %> </h4>
-    <p class="lead text-muted"><%= post.body %> </p>
-    <p class="lead text-muted"><%= post.updatedAt.toLocaleString() %> </p>
-    <p>
-      <buton type="submit" class="btn btn-primary my-2">Save Post</buton>
-    </p>
+      <h4
+        ><input required type="text" class="form-control" name="author" value="<%= post.author %>"
+      /></h4>
+      <p class="lead text-muted">
+        <textarea type="text" class="form-control" name="body" required><%= post.body %></textarea>
+      </p>
+      <p class="lead text-muted"><%= post.updatedAt.toLocaleString() %> </p>
+      <p>
+        <a href="/blog" class="btn btn-success my-2">go back</a>
+        <buton type="submit" class="btn btn-primary my-2">Save Post</buton>
+      </p>
+    </form>
   </div>
 </section>
 

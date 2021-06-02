@@ -73,9 +73,10 @@ router.get('/single/edit/:id', (req, res) => {
 
   Post.findById(blogId)
     .then((foundPost) => {
+      console.log(' foundPost', foundPost);
       res.render('singlePageEdit', {
         title: 'Post about ...',
-        page: 'single',
+        page: 'single-edit',
         post: foundPost,
       });
     })
