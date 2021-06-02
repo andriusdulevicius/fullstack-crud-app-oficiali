@@ -10,11 +10,10 @@ editFrom.addEventListener('submit', (event) => {
 
   // supakuojam formos duomenis
   const fd = new FormData(editFrom);
-  fd.append('_id', currentId);
   // form data to json conversija
   const fdJsonFormat = JSON.stringify(Object.fromEntries(fd));
 
-  MyFetch.updatePost(fdJsonFormat, (ats) => {
+  MyFetch.updatePost(fdJsonFormat, currentId, (ats) => {
     console.log(ats);
   });
 });

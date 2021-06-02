@@ -28,14 +28,9 @@ router.delete('/:id', (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-router.put('/', (req, res) => {
+router.put('/:id', (req, res) => {
   // res.json(req.body);
-  const { _id, title, author, body } = req.body;
-  Post.findByIdAndUpdate(_id, {
-    title,
-    author,
-    body,
-  })
+  Post.findByIdAndUpdate(req.params.id, req.body)
     .then((result) => res.json({ msg: 'success', redirect: '/blog' }))
     .catch((err) => console.error(err.message));
 });
