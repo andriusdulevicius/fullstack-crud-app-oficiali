@@ -68,6 +68,20 @@ router.get('/single/:id', (req, res) => {
 });
 
 // GET /single/edit/:id renderina singlePageEdit.ejs
+router.get('/single/edit/:id', (req, res) => {
+  const blogId = req.params.id;
+
+  Post.findById(blogId)
+    .then((foundPost) => {
+      res.render('singlePageEdit', {
+        title: 'Post about ...',
+        page: 'single',
+        post: foundPost,
+      });
+    })
+    // redirect if not found
+    .catch((err) => res.redirect('/blog'));
+});
 // singlePageEdit.ejs kuris yra kopija singlePage.ejs
 // tik su ivesties laukais
 
