@@ -5,7 +5,7 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
-        <% blogDb.forEach(({id, title, author, date, body}) => { %>
+        <% posts.forEach(({id, title, author, createdAt, body}) => { %>
         <!-- one card -->
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
@@ -18,7 +18,7 @@
                   <a href="/single/<%= id %>" class="btn btn-sm btn-outline-secondary">View</a>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
-                <small class="text-muted"><%= date %> </small>
+                <small class="text-muted"><%= createdAt.toLocaleString() %> </small>
               </div>
             </div>
           </div>
