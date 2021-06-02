@@ -27,4 +27,6 @@ export default class MyFetch {
       .then((data) => successCallback(data))
       .catch((err) => console.error(err.message));
   }
+
+  static deletePost(id) {}
 }

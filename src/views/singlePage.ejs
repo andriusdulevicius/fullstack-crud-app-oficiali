@@ -8,9 +8,10 @@
     <h1><%= post.title %></h1>
     <h4><%= post.author %> </h4>
     <p class="lead text-muted"><%= post.body %> </p>
+    <p class="lead text-muted"><%= post.updatedAt.toLocaleString() %> </p>
     <p>
       <a href="#" class="btn btn-primary my-2">Edit</a>
-      <a href="#" class="btn btn-danger my-2">Delete</a>
+      <button href="#" class="btn btn-danger my-2">Delete</button>
     </p>
   </div>
 </section>
