@@ -30,7 +30,7 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // res.json(req.body);
-  Post.findByIdAndUpdate(req.params.id, req.body)
+  Post.findOneAndUpdate({ _id: req.params.id }, req.body)
     .then((result) => res.json({ msg: 'success', redirect: '/blog' }))
     .catch((err) => console.error(err.message));
 });
