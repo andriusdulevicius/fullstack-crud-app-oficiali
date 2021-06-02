@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const Post = require('../models/post');
 const blogDb = require('../data/blogDb');
 
 // home page
@@ -22,11 +22,16 @@ router.get('/about', function (req, res) {
 
 // blog page
 router.get('/blog', function (req, res) {
-  res.render('blog', {
-    title: 'Our blog',
-    page: 'blog',
-    blogDb,
-  });
+  // parsisiusti duomenis is db
+  Post.find()
+    .then((posts) => {
+      res.render('blog', {
+        title: 'Our blog',
+        page: 'blog',
+        posts,
+      });
+    })
+    .catch((err) => console.error(err.message));
 });
 
 // contact page
