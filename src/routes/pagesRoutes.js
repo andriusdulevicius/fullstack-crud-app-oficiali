@@ -66,6 +66,9 @@ router.get('/single/:id', (req, res) => {
     // redirect if not found
     .catch((err) => res.redirect('/blog'));
 });
-// /single/:id
+
+// GET /single/edit/:id renderina singlePageEdit.ejs
+// singlePageEdit.ejs kuris yra kopija singlePage.ejs
+// tik su ivesties laukais
 
 module.exports = router;

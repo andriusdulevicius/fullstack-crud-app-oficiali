@@ -4,14 +4,15 @@ console.log('single');
 
 // pasiimti mygtuka
 const delBtn = document.querySelector('#delete');
-const delId = delBtn.dataset.postId;
+const currentPostId = delBtn.dataset.postId;
 // pasiimam id
-console.log(' delId', delId);
 
 // fetch to delete
 delBtn.addEventListener('click', () => {
-  MyFetch.deletePost(delId, (ats) => {
-    console.log(' ats', ats);
+  MyFetch.deletePost(currentPostId, ({ redirect }) => {
+    if (redirect) {
+      window.location = redirect;
+    }
   });
 });
 
