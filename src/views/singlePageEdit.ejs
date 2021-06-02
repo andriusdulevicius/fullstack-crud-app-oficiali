@@ -3,9 +3,9 @@
 <%- include('./partials/nav.ejs') %>
 
 <h2>Single page template</h2>
-<section class="jumbotron text-center" data-post-id="<%= post._id %>">
+<section class="jumbotron text-center">
   <div class="container">
-    <form id="edit-form">
+    <form id="edit-form" data-post-id="<%= post._id %>">
       <h1
         ><input required type="text" class="form-control" name="title" value="<%= post.title %>"
       /></h1>
@@ -18,7 +18,7 @@
       <p class="lead text-muted"><%= post.updatedAt.toLocaleString() %> </p>
       <p>
         <a href="/blog" class="btn btn-success my-2">go back</a>
-        <buton type="submit" class="btn btn-primary my-2">Save Post</buton>
+        <button type="submit" class="btn btn-primary my-2">Save Post</button>
       </p>
     </form>
   </div>

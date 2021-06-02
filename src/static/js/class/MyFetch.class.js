@@ -41,6 +41,7 @@ export default class MyFetch {
   }
   // update post
   static updatePost(data, successCallback) {
+    console.log('updatePost');
     fetch(MyFetch.baseUrl, {
       method: 'PUT',
       headers: {
