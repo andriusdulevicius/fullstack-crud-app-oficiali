@@ -28,5 +28,15 @@ export default class MyFetch {
       .catch((err) => console.error(err.message));
   }
 
-  static deletePost(id) {}
+  static deletePost(id, successCallback) {
+    fetch(`${MyFetch.baseUrl}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => successCallback(data))
+      .catch((err) => console.error(err.message));
+  }
 }

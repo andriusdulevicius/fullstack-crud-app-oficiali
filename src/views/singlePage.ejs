@@ -11,7 +11,9 @@
     <p class="lead text-muted"><%= post.updatedAt.toLocaleString() %> </p>
     <p>
       <a href="#" class="btn btn-primary my-2">Edit</a>
-      <button href="#" class="btn btn-danger my-2">Delete</button>
+      <button data-post-id="<%= post._id %>" id="delete" href="#" class="btn btn-danger my-2"
+        >Delete</button
+      >
     </p>
   </div>
 </section>

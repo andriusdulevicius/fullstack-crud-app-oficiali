@@ -22,6 +22,10 @@ router.post('/', (req, res) => {
   // paimam req body duomenis ir su jais sukuriam nauja post ir ikeliam i blogDb
 });
 
-router.delete('/:id', (req, res) => {});
+router.delete('/:id', (req, res) => {
+  Post.findByIdAndRemove(req.params.id)
+    .then((result) => res.json({ msg: 'delete success', redirect: '/blog' }))
+    .catch((err) => res.status(400).json(err));
+});
 
 module.exports = router;
