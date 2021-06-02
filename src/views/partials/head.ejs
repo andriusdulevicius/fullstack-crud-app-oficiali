@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Express Blog 
-        <% if (title) { %> 
-            <%= '| ' + title %> 
-        <% } %> 
-    </title>
+    <title>Express Blog <% if (title) { %> <%= '| ' + title %> <% } %> </title>
     <!-- Bootstrap core CSS -->
     <link
       rel="stylesheet"
@@ -16,12 +12,14 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
-    <%# Kelia nurodome nuo statines direkcotijos aprasytos index.js %> 
-    <link rel="stylesheet" href="/css/style.css">
-    
-    <% if (page === 'createB') { %>
-      <script src="/js/create.js" defer type="module"></script>
-    <% } %>
+    <%# Kelia nurodome nuo statines direkcotijos aprasytos index.js %>
+    <link rel="stylesheet" href="/css/style.css" />
 
+    <% if (page === 'createB') { %>
+    <script src="/js/create.js" defer type="module"></script>
+    <% } %> <% if (page === 'single') { %>
+    <script src="/js/single.js" defer type="module"></script>
+    <% } %>
   </head>
-  <body class="container">
+  <body class="container"> </body
+></html>

@@ -22,4 +22,6 @@ router.post('/', (req, res) => {
   // paimam req body duomenis ir su jais sukuriam nauja post ir ikeliam i blogDb
 });
 
+router.delete('/:id', (req, res) => {});
+
 module.exports = router;
