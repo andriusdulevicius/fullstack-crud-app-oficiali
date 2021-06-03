@@ -27,6 +27,7 @@ app.set('views', 'src/views');
 
 // for req.body to work
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // pages routes
 app.use('/', pageRoutes);

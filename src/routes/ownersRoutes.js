@@ -4,15 +4,23 @@ const router = express.Router();
 const Owner = require('../models/owner');
 
 router.get('/', (req, res) => {
-  res.render('owners/index', {
-    title: 'Owners',
-    page: 'owners',
-  });
+  // get all owners from db
+  Owner.find()
+    .then((found) => {
+      // generate list items with owners name and email
+      res.render('owners/index', {
+        title: 'Owners',
+        page: 'owners',
+        owners: found,
+      });
+    })
+    .catch((err) => console.error(err));
+  // pass owners to view
 });
-router.get('/new', (req, res) => {
+router.post('/new', (req, res) => {
   // sukurti 3 naujus ownerius
   const o1 = { name: 'Bob1', email: 'Bob@Pop1.op' };
-
+  console.log(req.body);
   const newOwner = new Owner({
     name: o1.name,
     email: o1.email,
