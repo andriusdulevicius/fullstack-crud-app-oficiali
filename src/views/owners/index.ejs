@@ -6,11 +6,17 @@
   <div class="alert alert-success" role="alert"> Owner created <%= result.name %> </div>
   <% } %>
 
-  <h2>Our owners list </h2>
+  <h2>Our owners list <a class="btn btn-info float-right" href="/owners/new">Add Owner</a></h2>
 
   <ol class="list-group">
-    <% owners.forEach(({name, email}) => { %>
-    <li class="list-group-item">Name: <%= name %> , email: <%= email %> </li>
+    <% owners.forEach(({name, email, createdAt: date}) => { %>
+    <li class="list-group-item"
+      >Name: <%= name %> , email: <%= email %> <br />
+      <small class="text-muted"><%= date.toLocaleTimeString() %> </small>
+      <form class="float-right" action="/owners/delelte/id" method="delete">
+        <button class="btn btn-danger" type="submit">Delete me</button>
+      </form>
+    </li>
     <% }) %>
   </ol>
 </main>
