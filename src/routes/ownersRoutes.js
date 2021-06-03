@@ -6,6 +6,7 @@ const Owner = require('../models/owner');
 router.get('/', (req, res) => {
   // get all owners from db
   Owner.find()
+    .sort({ createdAt: 1 })
     .then((found) => {
       // generate list items with owners name and email
       res.render('owners/index', {
