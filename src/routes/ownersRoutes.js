@@ -18,6 +18,16 @@ router.get('/', (req, res) => {
     .catch((err) => console.error(err));
   // pass owners to view
 });
+
+// get single owner
+router.get('/single/:id', (req, res) => {
+  res.render('owners/single', {
+    title: 'Single',
+    page: 'single_owner',
+    id: req.params.id,
+  });
+});
+
 // formos parodymo route
 router.get('/new', (req, res) => {
   res.render('owners/new', {
