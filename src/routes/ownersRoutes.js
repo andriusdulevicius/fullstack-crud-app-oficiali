@@ -4,6 +4,9 @@ const router = express.Router();
 const Owner = require('../models/owner');
 
 router.get('/', (req, res) => {
+  // was there a delete
+  console.log(' req.query', req.query);
+  const deleteMsg = req.query.delete;
   // get all owners from db
   Owner.find()
     .sort({ createdAt: 1 })
@@ -13,6 +16,7 @@ router.get('/', (req, res) => {
         title: 'Owners',
         page: 'owners',
         owners: found,
+        msg: deleteMsg,
       });
     })
     .catch((err) => console.error(err));
@@ -23,11 +27,15 @@ router.get('/', (req, res) => {
 router.get('/single/:id', (req, res) => {
   // find by id
 
-  res.render('owners/single', {
-    title: 'Single',
-    page: 'single_owner',
-    id: req.params.id,
-  });
+  Owner.findById(req.params.id)
+    .then((found) => {
+      res.render('owners/single', {
+        title: 'Single',
+        page: 'single_owner',
+        found,
+      });
+    })
+    .catch((err) => console.error(err));
 });
 
 // formos parodymo route
@@ -49,6 +57,13 @@ router.post('/new', (req, res) => {
       res.redirect('/owners?msg=Success');
     })
     .catch((err) => res.send('Opps did not save', err));
+});
+
+// delete form
+router.post('/delete/:id', (req, res) => {
+  Owner.findByIdAndDelete(req.params.id)
+    .then((result) => res.redirect('/owners?delete=true'))
+    .catch((err) => res.send(`delete failed ${err}`));
 });
 
 module.exports = router;

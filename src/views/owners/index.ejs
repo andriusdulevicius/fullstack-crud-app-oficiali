@@ -4,6 +4,8 @@
   <h1>This is the owners page</h1>
   <% if (locals.result) { %>
   <div class="alert alert-success" role="alert"> Owner created <%= result.name %> </div>
+  <% } %> <% if (locals.msg) { %>
+  <div class="alert alert-danger" role="alert"> Owner Deleted, Sad </div>
   <% } %>
 
   <h2>Our owners list <a class="btn btn-info float-right" href="/owners/new">Add Owner</a></h2>
@@ -18,7 +20,7 @@
 
       <div>
         <a href="/owners/single/<%= _id %> " class="btn btn-success">View</a>
-        <form action="/owners/delelte/id" method="delete">
+        <form action="/owners/delete/<%= _id %>" method="POST">
           <button class="btn btn-danger" type="submit">Delete me</button>
         </form>
       </div>
