@@ -30,6 +30,19 @@ app.use(express.json());
 // pages routes
 app.use('/', pageRoutes);
 
+app.get('/owners', (req, res) => {
+  res.render('owners/index', {
+    title: 'Owners',
+    page: 'owners',
+  });
+});
+app.get('/owners/new', (req, res) => {
+  res.render('owners/new', {
+    title: 'Add owner',
+    page: 'owners_new',
+  });
+});
+
 const staticPath = path.join(__dirname, 'static');
 // statine direktorija, css, js, img ir kt statiniam failam
 app.use(express.static(staticPath));
