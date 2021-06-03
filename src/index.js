@@ -29,6 +29,11 @@ app.set('views', 'src/views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// absurd example
+// app.get('/owner/blog/green/blue', (req, res) => {
+//   res.send('yes it works');
+// });
+
 // pages routes
 app.use('/', pageRoutes);
 
