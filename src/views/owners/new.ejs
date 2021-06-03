@@ -1,7 +1,11 @@
 <%- include('../partials/head.ejs') %> <%- include('../partials/nav.ejs') %>
 
 <main>
-  <h1>add new owner</h1>
+  <% if (result) { %>
+  <div class="alert alert-success" role="alert"> Owner created <%= result.name %> </div>
+  <% } %>
+
+  <h1>Add new owner</h1>
   <h2>Sample form</h2>
 </main>
 
