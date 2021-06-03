@@ -8,6 +8,7 @@ const { mongoDbString } = require('./config/c');
 const PORT = 3000;
 
 const pageRoutes = require('./routes/pagesRoutes');
+const ownersRoutes = require('./routes/ownersRoutes');
 const apiRoutes = require('./routes/api/apiRoutes');
 
 // mongoos prisijungimas
@@ -30,18 +31,8 @@ app.use(express.json());
 // pages routes
 app.use('/', pageRoutes);
 
-app.get('/owners', (req, res) => {
-  res.render('owners/index', {
-    title: 'Owners',
-    page: 'owners',
-  });
-});
-app.get('/owners/new', (req, res) => {
-  res.render('owners/new', {
-    title: 'Add owner',
-    page: 'owners_new',
-  });
-});
+// owners routes
+app.use('/owners', ownersRoutes);
 
 const staticPath = path.join(__dirname, 'static');
 // statine direktorija, css, js, img ir kt statiniam failam
