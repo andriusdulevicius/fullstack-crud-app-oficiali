@@ -6,7 +6,9 @@
   <h2>Our owners list </h2>
 
   <ol class="list-group">
-    <li class="list-group-item">Name: name, email: email</li>
+    <% owners.forEach(({name, email}) => { %>
+    <li class="list-group-item">Name: <%= name %> , email: <%= email %> </li>
+    <% }) %>
   </ol>
 </main>
 

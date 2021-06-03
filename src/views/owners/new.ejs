@@ -1,7 +1,7 @@
 <%- include('../partials/head.ejs') %> <%- include('../partials/nav.ejs') %>
 
 <main>
-  <% if (result) { %>
+  <% if (locals.result) { %>
   <div class="alert alert-success" role="alert"> Owner created <%= result.name %> </div>
   <% } %>
 
