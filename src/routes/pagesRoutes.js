@@ -25,7 +25,7 @@ router.get('/blog', function (req, res) {
   // parsisiusti duomenis is db
   Post.find()
     .then((posts) => {
-      res.render('blog', {
+      res.render('blog/blog', {
         title: 'Our blog',
         page: 'blog',
         posts,
@@ -45,7 +45,7 @@ router.get('/contact', function (req, res) {
 // create blog page /blog/create
 // contact page
 router.get('/blog/create', function (req, res) {
-  res.render('createBlog', {
+  res.render('blog/createBlog', {
     title: 'Create new Post',
     page: 'createB',
   });
@@ -57,7 +57,7 @@ router.get('/single/:id', (req, res) => {
 
   Post.findById(blogId)
     .then((foundPost) => {
-      res.render('singlePage', {
+      res.render('blog/singlePage', {
         title: 'Post about ...',
         page: 'single',
         post: foundPost,
@@ -74,7 +74,7 @@ router.get('/single/edit/:id', (req, res) => {
   Post.findById(blogId)
     .then((foundPost) => {
       console.log(' foundPost', foundPost);
-      res.render('singlePageEdit', {
+      res.render('blog/singlePageEdit', {
         title: 'Post about ...',
         page: 'single_edit',
         post: foundPost,
