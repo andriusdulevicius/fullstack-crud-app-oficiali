@@ -9,13 +9,19 @@
   <h2>Our owners list <a class="btn btn-info float-right" href="/owners/new">Add Owner</a></h2>
 
   <ol class="list-group">
-    <% owners.forEach(({name, email, createdAt: date}) => { %>
-    <li class="list-group-item"
-      >Name: <%= name %> , email: <%= email %> <br />
-      <small class="text-muted"><%= date.toLocaleTimeString() %> </small>
-      <form class="float-right" action="/owners/delelte/id" method="delete">
-        <button class="btn btn-danger" type="submit">Delete me</button>
-      </form>
+    <% owners.forEach(({ _id, name, email, createdAt: date}) => { %>
+    <li class="list-group-item d-flex justify-content-between">
+      <div>
+        Name: <%= name %> , email: <%= email %> <br />
+        <small class="text-muted"><%= date.toLocaleTimeString() %> </small>
+      </div>
+
+      <div>
+        <a href="/owners/single/<%= _id %> " class="btn btn-success">View</a>
+        <form action="/owners/delelte/id" method="delete">
+          <button class="btn btn-danger" type="submit">Delete me</button>
+        </form>
+      </div>
     </li>
     <% }) %>
   </ol>

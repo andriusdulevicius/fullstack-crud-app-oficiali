@@ -21,6 +21,8 @@ router.get('/', (req, res) => {
 
 // get single owner
 router.get('/single/:id', (req, res) => {
+  // find by id
+
   res.render('owners/single', {
     title: 'Single',
     page: 'single_owner',
