@@ -13,7 +13,10 @@ editFrom.addEventListener('submit', (event) => {
   // form data to json conversija
   const fdJsonFormat = JSON.stringify(Object.fromEntries(fd));
 
-  MyFetch.updatePost(fdJsonFormat, currentId, (ats) => {
-    console.log(ats);
+  MyFetch.updatePost(fdJsonFormat, currentId, (data) => {
+    console.log(data);
+    if (data.redirect) {
+      window.location = data.redirect;
+    }
   });
 });

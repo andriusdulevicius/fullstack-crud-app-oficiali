@@ -6,7 +6,7 @@ const mainForm = document.getElementById('create-post-form');
 
 mainForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  console.log('Stop right there, dont you dare to send it, I swear to God');
+  // console.log('Stop right there, dont you dare to send it, I swear to God');
 
   // supakuojam formos duomenis
   const fd = new FormData(mainForm);
@@ -15,6 +15,9 @@ mainForm.addEventListener('submit', function (event) {
 
   MyFetch.createPost(fdJsonFormat, (ats) => {
     console.log(ats);
+    if (error) {
+      console.log('Do something about the errror');
+    }
     if (ats.redirect) {
       // console.log('redirecting to', ats.redirect);
       window.location = ats.redirect;
