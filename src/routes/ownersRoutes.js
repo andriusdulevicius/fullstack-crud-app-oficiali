@@ -27,21 +27,13 @@ router.get('/new', (req, res) => {
 
 // formos apdorojimo routas
 router.post('/new', (req, res) => {
-  // sukurti 3 naujus ownerius
-  const o1 = { name: 'Bob1', email: 'Bob@Pop1.op' };
-  console.log(req.body);
-  const newOwner = new Owner({
-    name: o1.name,
-    email: o1.email,
-  });
+  console.log(' req.body', req.body);
+
+  const newOwner = new Owner(req.body);
   newOwner
     .save()
     .then((result) => {
-      res.render('owners/new', {
-        title: 'Add owner',
-        page: 'owners_new',
-        result,
-      });
+      res.redirect('/owners?msg=Success');
     })
     .catch((err) => res.send('Opps did not save', err));
 });
