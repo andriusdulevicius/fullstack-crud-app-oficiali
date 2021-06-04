@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   const deleteMsg = req.query.delete;
   // get all owners from db
   Owner.find()
-    .sort({ createdAt: 1 })
+    .sort({ createdAt: -1 })
     .then((found) => {
       // generate list items with owners name and email
       res.render('owners/index', {
